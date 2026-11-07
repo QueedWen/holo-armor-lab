@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#071422">
+<title>HOLO ARMOR LAB | Gesture Control POC</title>
+</head>
+<body>
+<div id="app">
+<header><div class="brand"><span class="brand-icon">⬡</span><div><strong>HOLO ARMOR <em>LAB</em></strong><small>J.A.R.V.I.S.-INSPIRED · GESTURE PROTOTYPE</small></div></div><div class="system"><i></i>SYSTEM ONLINE <span>—</span> LOCAL HAND TRACKING</div><div id="clock">--:--:--</div></header>
+<main>
+<aside class="panel left">
+<section class="box"><h3>01 // SYSTEM DIAGNOSTICS</h3><div class="reactor"><div class="reactor-light"></div><div><small>ARC REACTOR · SIMULATION</small><strong id="power">98.6%</strong><small class="ok">● STABLE OUTPUT</small></div></div><div class="meta"><label>MODEL</label><span>AX-07 SENTINEL</span></div><div class="meta"><label>ROTATION X</label><span id="rotationX">0°</span></div><div class="meta"><label>ROTATION Y</label><span id="rotationY">0°</span></div><div class="meta"><label>SCALE</label><span id="scaleValue">100%</span></div><div class="meta"><label>FPS</label><span id="fps">—</span></div></section>
+<section class="box"><h3>02 // HAND GESTURES</h3><div class="orbit-sign">◎</div><small>ACTIVE INPUT</small><h2 id="gestureLabel">MOUSE / TOUCH</h2><p id="gestureHint">拖拽模型旋转，滚轮缩放。打开摄像头后可使用手势控制。</p><div class="meta"><label>HANDS</label><span id="handCount">0</span></div><div class="meta"><label>PINCH RATIO</label><span id="pinchValue">—</span></div><div class="meta"><label>TRACKING</label><span id="trackingState">OFFLINE</span></div></section>
+<div class="privacy">◈ VIDEO PROCESSED LOCALLY</div>
+</aside>
+<section id="stage"><div class="stage-top">● MODEL VIEW // AX-07 <span>REALTIME 3D</span></div><div id="viewport"></div><div class="annotation left-anno">HEAD / OPTICAL ───</div><div class="annotation right-anno">─── ARC REACTOR</div><div class="stage-bottom">PROCEDURAL EXOSUIT <span id="assemblyStatus">ASSEMBLED</span></div></section>
+<aside class="panel right">
+<section class="box"><h3>03 // LIVE HAND TRACKING <span id="cameraBadge">OFFLINE</span></h3><div id="cameraFeed"><video id="webcam" autoplay muted playsinline></video><canvas id="handCanvas"></canvas><div id="cameraPlaceholder"><div class="camera-placeholder-icon">◎</div>CAMERA STANDBY<small>开启摄像头后显示手部骨架</small></div><div class="cam-caption"><span id="cameraResolution">NO SIGNAL</span><span>21 POINTS / HAND</span></div></div><button id="cameraPanelButton" class="cam-btn">◉ 启动摄像头 / ENABLE TRACKING</button></section>
+<section class="box"><h3>04 // GESTURE PROTOCOL</h3><div class="guide"><b>⌕</b><div><strong>PINCH + DRAG</strong><p>单手拇指食指捏合并移动 → 旋转装甲</p></div></div><div class="guide"><b>⇔</b><div><strong>DUAL HAND EXPAND</strong><p>双手远离或靠近 → 模型缩放</p></div></div><div class="guide"><b>↻</b><div><strong>MOUSE / TOUCH</strong><p>鼠标拖拽旋转、滚轮缩放</p></div></div></section>
+<div class="privacy">摄像头画面仅在本机处理；首次启动需要联网下载识别模型。</div>
+</aside>
+</main>
+<footer><div class="footer-name">CONTROL <b>INTERFACE</b></div><div class="actions"><button id="resetButton">↻ RESET</button><button id="explodeButton">⫶ EXPLODE</button><button id="wireButton" class="active">▧ WIREFRAME</button><button id="cameraButton" class="primary"><span id="cameraButtonText">◉ CAMERA ON</span></button></div><div class="build">POC v0.1 · THREE.JS + MEDIAPIPE</div></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+</div><script type="module" src="/src/main.ts"></script>
+</body>
+</html>
