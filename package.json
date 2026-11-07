@@ -7,7 +7,7 @@
     "dev": "vite --host 0.0.0.0",
     "build": "tsc --noEmit && vite build",
     "preview": "vite preview --host 0.0.0.0",
-    "test": "node --test tests/*.test.mjs"
+    "test": "tsc src/gesture.ts --target ES2022 --module ES2022 --strict --outDir .test-build && node --test tests/*.test.mjs"
   },
   "dependencies": {
     "@mediapipe/tasks-vision": "^0.10.22",
